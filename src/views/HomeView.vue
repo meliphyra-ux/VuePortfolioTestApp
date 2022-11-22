@@ -4,10 +4,11 @@ export default {
     return {
       mousePositionX: 0,
       mousePositionY: 0,
+      blobShow: false,
     };
   },
   mounted() {
-    console.log(this.mousePositionX, this.mousePositionY);
+    setTimeout(() => (this.blobShow = true), 50);
   },
   // methods: {
   //   logPosition(event) {
@@ -40,7 +41,9 @@ export default {
       :style="{
         top: '50%',
         left: '50%',
-        transform: 'rotate(135deg) ',
+        transform: blobShow ? 'rotate(135deg)' : 'translate(-50%, -50%)',
+        opacity: blobShow ? '1' : '0',
+        transformOrigin: blobShow ? 'top left' : 'center',
       }"
     ></div>
     <div
@@ -48,7 +51,9 @@ export default {
       :style="{
         top: '50%',
         left: '50%',
-        transform: 'rotate(120deg) ',
+        transform: blobShow ? 'rotate(120deg)' : 'translate(-50%, -50%)',
+        opacity: blobShow ? '1' : '0',
+        transformOrigin: blobShow ? 'top left' : 'center',
       }"
     ></div>
     <div
@@ -56,7 +61,9 @@ export default {
       :style="{
         top: '50%',
         left: '50%',
-        transform: 'rotate(150deg)',
+        transform: blobShow ? 'rotate(150deg)' : 'translate(-50%, -50%)',
+        opacity: blobShow ? '1' : '0',
+        transformOrigin: blobShow ? 'top left' : 'center',
       }"
     ></div>
   </main>
@@ -80,11 +87,11 @@ main {
   position: absolute;
   z-index: -1;
   border-radius: 15px 50%;
-  min-width: 350px;
-  min-height: 350px;
+  min-width: 250px;
+  min-height: 250px;
   /* filter: blur(rem); */
   box-shadow: 0px 0px 60px 0px #58ffa0;
-  transform-origin: left top;
+  transition: all 1s ease;
   background: -webkit-linear-gradient(60deg, #289ab9, #12be03);
   text-align: center;
 }
