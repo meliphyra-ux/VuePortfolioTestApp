@@ -38,22 +38,25 @@ export default {
     <div
       class="blub"
       :style="{
-        top: '20%',
-        left: '15%',
+        top: '50%',
+        left: '50%',
+        transform: 'rotate(135deg) ',
       }"
     ></div>
     <div
       class="blub"
       :style="{
-        top: '25%',
-        left: '15%',
+        top: '50%',
+        left: '50%',
+        transform: 'rotate(120deg) ',
       }"
     ></div>
     <div
       class="blub"
       :style="{
-        top: '30%',
-        left: '15%',
+        top: '50%',
+        left: '50%',
+        transform: 'rotate(150deg)',
       }"
     ></div>
   </main>
@@ -66,6 +69,7 @@ h2 {
 }
 main {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -75,12 +79,13 @@ main {
 .blub {
   position: absolute;
   z-index: -1;
-  border-radius: 50px;
+  border-radius: 15px 50%;
   min-width: 350px;
-  min-height: 250px;
+  min-height: 350px;
   /* filter: blur(rem); */
-  box-shadow: 0px 0px 60px 0px #8758ff;
-  background: -webkit-linear-gradient(60deg, #8758ff, #5cb8e4);
+  box-shadow: 0px 0px 60px 0px #58ffa0;
+  transform-origin: left top;
+  background: -webkit-linear-gradient(60deg, #289ab9, #12be03);
   text-align: center;
 }
 </style>
