@@ -1,61 +1,15 @@
-<script>
-export default {
-  data() {
-    return {
-      mousePositionX: 0,
-      mousePositionY: 0,
-    };
-  },
-  mounted() {
-    console.log(this.mousePositionX, this.mousePositionY);
-  },
-  // methods: {
-  //   logPosition(event) {
-  //     setTimeout(() => {
-  //       this.mousePositionX = event.clientX;
-  //       this.mousePositionY = event.clientY;
-  //     }, 0);
-  //   },
-  // },
-};
+<script setup>
+import BlubComponent from "../components/BlubComponent.vue";
 </script>
-<!-- @mousemove="logPosition($event)" -->
+
 <template>
   <main>
     <div>
       <h2>Welcome to the world of web development!</h2>
     </div>
-    <!-- <div
-      class="blub"
-      :style="{
-        transform: `translate(${mousePositionX - 125}px, ${
-          mousePositionY - 125
-        }px)`,
-      }"
-    >
-      Blub
-    </div> -->
-    <div
-      class="blub"
-      :style="{
-        top: '20%',
-        left: '15%',
-      }"
-    ></div>
-    <div
-      class="blub"
-      :style="{
-        top: '25%',
-        left: '15%',
-      }"
-    ></div>
-    <div
-      class="blub"
-      :style="{
-        top: '30%',
-        left: '15%',
-      }"
-    ></div>
+    <BlubComponent :top="50" :left="50" :rotate="150" />
+    <BlubComponent :top="50" :left="50" :rotate="120" />
+    <BlubComponent :top="50" :left="50" :rotate="135" />
   </main>
 </template>
 
@@ -66,21 +20,11 @@ h2 {
 }
 main {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 60px);
   overflow: hidden;
-}
-.blub {
-  position: absolute;
-  z-index: -1;
-  border-radius: 50px;
-  min-width: 350px;
-  min-height: 250px;
-  /* filter: blur(rem); */
-  box-shadow: 0px 0px 60px 0px #8758ff;
-  background: -webkit-linear-gradient(60deg, #8758ff, #5cb8e4);
-  text-align: center;
 }
 </style>
